@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ResearchOS</title>
+
+    <link rel="stylesheet" href="rstyle.css" />
+    <link rel="stylesheet" href="research.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="background">
+      <div class="blob blob1"></div>
+      <div class="blob blob2"></div>
+      <div class="blob blob3"></div>
+    </div>
+
+    <header>
+      <div class="logo">🔬 <span>ResearchOS</span></div>
+
+      <nav>
+        <button id="saveBtn">💾 Save</button>
+
+        <button id="importBtn">📂 Import</button>
+
+        <button id="exportBtn">📤 Export</button>
+
+        <button id="settingsBtn">⚙ Settings</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="topicBar">
+        <input
+          type="text"
+          id="topicInput"
+          placeholder="Enter a research topic..."
+        />
+
+        <button id="searchBtn">Search</button>
+      </section>
+
+      <section class="workspace">
+        <aside class="sidebar">
+          <button class="tab active">Summary</button>
+
+          <button class="tab">Sources</button>
+
+          <button class="tab">Notes</button>
+
+          <button class="tab">Images</button>
+
+          <button class="tab">References</button>
+
+          <button class="tab">Timeline</button>
+        </aside>
+
+        <div class="content">
+          <div class="tabBar">
+            <button class="contentTab activeTab">Summary</button>
+
+            <button class="contentTab">Notes</button>
+
+            <button class="contentTab">Sources</button>
+
+            <button class="contentTab">Images</button>
+          </div>
+          <div class="glassCard">
+            <h2>Welcome to ResearchOS</h2>
+
+            <p>
+              Enter any topic above and begin building your research project.
+            </p>
+          </div>
+
+          <div class="glassCard">
+            <h3>AI Summary</h3>
+
+            <div id="summaryOutput">Your summary will appear here...</div>
+          </div>
+
+          <div class="glassCard">
+            <h3>Notes</h3>
+
+            <textarea id="notes" placeholder="Write your notes..."></textarea>
+          </div>
+
+          <aside class="aiPanel">
+            <div class="aiCard">
+              <h3>⚡ AI Tools</h3>
+
+              <div class="quickActions">
+                <button id="summarizeBtn">Summarize</button>
+
+                <button id="explainBtn">Explain</button>
+
+                <button id="factsBtn">Facts</button>
+
+                <button id="timelineBtn">Timeline</button>
+              </div>
+            </div>
+
+            <div class="aiCard">
+              <h3>Research Progress</h3>
+
+              <div class="output">
+                Topic:
+                <br /><br />
+
+                Sources:
+                <br /><br />
+
+                Notes:
+                <br /><br />
+
+                Status: Ready
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="statusBar">
+      <span> 🟢 Ready </span>
+
+      <span id="saveStatus"> Saved </span>
+    </footer>
+
+    <!-- Command Palette -->
+
+    <div id="commandPalette">
+      <div class="commandWindow">
+        <input
+          type="text"
+          id="commandInput"
+          placeholder="Type a command..."
+          autocomplete="off"
+        />
+
+        <div id="commandList">
+          <div class="commandItem">📄 New Project</div>
+
+          <div class="commandItem">💾 Save Project</div>
+
+          <div class="commandItem">📤 Export Project</div>
+
+          <div class="commandItem">📂 Import Project</div>
+
+          <div class="commandItem">🔍 Search Topic</div>
+
+          <div class="commandItem">📝 Notes</div>
+
+          <div class="commandItem">📚 Sources</div>
+
+          <div class="commandItem">🖼 Images</div>
+
+          <div class="commandItem">📈 Timeline</div>
+
+          <div class="commandItem">🤖 AI Summary</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="storage.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

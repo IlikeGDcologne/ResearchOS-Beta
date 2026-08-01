@@ -1,0 +1,468 @@
+/* =========================
+   ResearchOS Global Styles
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Inter",sans-serif;
+}
+
+:root{
+
+    --bg:#09090b;
+
+    --card:rgba(22,22,28,.72);
+
+    --border:rgba(255,255,255,.08);
+
+    --blue:#3b82f6;
+
+    --text:#ffffff;
+
+    --text2:#b8b8c5;
+
+    --shadow:0 0 35px rgba(59,130,246,.18);
+
+}
+
+body{
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    overflow:hidden;
+
+    height:100vh;
+
+}
+
+/* =========================
+      Animated Background
+========================= */
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    z-index:-5;
+
+}
+
+.blob{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(90px);
+
+    opacity:.55;
+
+    animation:float 18s ease-in-out infinite;
+
+}
+
+.blob1{
+
+    width:340px;
+
+    height:340px;
+
+    background:#2563eb;
+
+    top:-80px;
+
+    left:-60px;
+
+}
+
+.blob2{
+
+    width:280px;
+
+    height:280px;
+
+    background:#9333ea;
+
+    right:-60px;
+
+    bottom:60px;
+
+    animation-delay:5s;
+
+}
+
+.blob3{
+
+    width:240px;
+
+    height:240px;
+
+    background:#0ea5e9;
+
+    left:40%;
+
+    bottom:-80px;
+
+    animation-delay:9s;
+
+}
+
+@keyframes float{
+
+    0%{
+
+        transform:translate(0,0) scale(1);
+
+    }
+
+    50%{
+
+        transform:translate(40px,-40px) scale(1.15);
+
+    }
+
+    100%{
+
+        transform:translate(0,0) scale(1);
+
+    }
+
+}
+
+/* =========================
+        Header
+========================= */
+
+header{
+
+    height:75px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 35px;
+
+    background:rgba(15,15,20,.45);
+
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:25px;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+
+}
+
+/* =========================
+       Top Buttons
+========================= */
+
+nav{
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+button{
+
+    cursor:pointer;
+
+    border:none;
+
+    border-radius:14px;
+
+    padding:11px 18px;
+
+    color:white;
+
+    background:rgba(255,255,255,.06);
+
+    transition:.25s;
+
+    font-size:14px;
+
+}
+
+button:hover{
+
+    background:var(--blue);
+
+    transform:translateY(-2px);
+
+    box-shadow:var(--shadow);
+
+}
+
+/* =========================
+      Main Layout
+========================= */
+
+main{
+
+    height:calc(100vh - 75px);
+
+    padding:25px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+/* =========================
+      Search Bar
+========================= */
+
+.topicBar{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.topicBar input{
+
+    flex:1;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid var(--border);
+
+    color:white;
+
+    padding:16px;
+
+    border-radius:16px;
+
+    outline:none;
+
+    font-size:16px;
+
+    transition:.25s;
+
+}
+
+.topicBar input:focus{
+
+    border-color:var(--blue);
+
+    box-shadow:0 0 18px rgba(59,130,246,.25);
+
+}
+
+#searchBtn{
+
+    background:var(--blue);
+
+    padding:0 28px;
+
+}
+
+/* =========================
+      Workspace
+========================= */
+
+.workspace{
+
+    flex:1;
+
+    display:flex;
+
+    gap:20px;
+
+}
+
+/* =========================
+        Sidebar
+========================= */
+
+.sidebar{
+
+    width:220px;
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:22px;
+
+    padding:18px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+.sidebar .tab{
+
+    width:100%;
+
+    text-align:left;
+
+}
+
+.sidebar .active{
+
+    background:var(--blue);
+
+}
+
+/* =========================
+      Content Area
+========================= */
+
+.content{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+    overflow:auto;
+
+}
+
+.glassCard{
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:22px;
+
+    padding:25px;
+
+    animation:fadeUp .5s ease;
+
+    box-shadow:var(--shadow);
+
+}
+
+.glassCard h2{
+
+    margin-bottom:12px;
+
+}
+
+.glassCard h3{
+
+    margin-bottom:14px;
+
+}
+
+.glassCard p{
+
+    color:var(--text2);
+
+    line-height:1.6;
+
+}
+
+/* =========================
+      Notes Box
+========================= */
+
+textarea{
+
+    width:100%;
+
+    min-height:220px;
+
+    resize:vertical;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:16px;
+
+    padding:18px;
+
+    color:white;
+
+    background:rgba(255,255,255,.05);
+
+    font-size:15px;
+
+}
+
+/* =========================
+      Scrollbar
+========================= */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--blue);
+
+    border-radius:20px;
+
+}
+
+/* =========================
+        Animations
+========================= */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(18px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}

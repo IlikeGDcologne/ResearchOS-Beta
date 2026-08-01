@@ -1,0 +1,539 @@
+/* ==========================================
+        RESEARCH WORKSPACE
+========================================== */
+
+.workspace{
+
+    display:grid;
+
+    grid-template-columns:240px 1fr 340px;
+
+    gap:20px;
+
+    height:100%;
+
+}
+
+/* ==========================================
+            LEFT SIDEBAR
+========================================== */
+
+.sidebar{
+
+    overflow-y:auto;
+
+}
+
+.sidebar button{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:15px 18px;
+
+    font-weight:500;
+}
+
+.sidebar button{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.sidebar button::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:4px;
+
+    height:100%;
+
+    background:#3b82f6;
+
+    transform:scaleY(0);
+
+    transition:.25s;
+
+}
+
+.sidebar button:hover::before{
+
+    transform:scaleY(1);
+
+}
+
+.sidebar button:hover{
+
+    padding-left:24px;
+
+}
+
+/* ==========================================
+            CENTER PANEL
+========================================== */
+
+.content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+    overflow-y:auto;
+
+}
+
+/* ==========================================
+        RIGHT AI PANEL
+========================================== */
+
+.aiPanel{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+    overflow-y:auto;
+
+}
+
+.aiCard{
+
+    background:rgba(22,22,28,.72);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:22px;
+
+    padding:22px;
+
+    animation:fadeUp .5s ease;
+}
+
+/* ==========================================
+        OUTPUT BOXES
+========================================== */
+
+.output{
+
+    margin-top:15px;
+
+    background:rgba(255,255,255,.05);
+
+    border-radius:16px;
+
+    padding:18px;
+
+    min-height:180px;
+
+    color:#b8b8c5;
+
+    line-height:1.7;
+
+}
+
+/* ==========================================
+        QUICK ACTIONS
+========================================== */
+
+.quickActions{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:12px;
+
+}
+
+.quickActions button{
+
+    height:60px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+/* ==========================================
+            SEARCH BAR
+========================================== */
+
+.topicBar{
+
+    display:grid;
+
+    grid-template-columns:1fr auto auto;
+
+    gap:15px;
+
+}
+
+#topicInput{
+
+    font-size:17px;
+
+}
+
+#searchBtn{
+
+    width:130px;
+
+}
+
+#aiBtn{
+
+    width:150px;
+
+}
+
+/* ==========================================
+            SUMMARY CARD
+========================================== */
+
+#summaryOutput{
+
+    min-height:250px;
+
+    white-space:pre-wrap;
+
+    line-height:1.8;
+
+}
+
+/* ==========================================
+                NOTES
+========================================== */
+
+#notes{
+
+    min-height:300px;
+
+}
+
+/* ==========================================
+            SMOOTH SCROLL
+========================================== */
+
+.sidebar,
+.content,
+.aiPanel{
+
+    scroll-behavior:smooth;
+
+}
+
+/* ==========================================
+            RESPONSIVE
+========================================== */
+
+@media(max-width:1200px){
+
+.workspace{
+
+grid-template-columns:220px 1fr;
+
+}
+
+.aiPanel{
+
+display:none;
+
+}
+
+}
+
+@media(max-width:850px){
+
+.workspace{
+
+grid-template-columns:1fr;
+
+}
+
+.sidebar{
+
+display:none;
+
+}
+
+}
+
+/* ==========================
+        CONTENT TABS
+========================== */
+
+.tabBar{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-bottom:5px;
+
+}
+
+.contentTab{
+
+    background:rgba(255,255,255,.05);
+
+    border-radius:12px;
+
+    padding:12px 22px;
+
+    transition:.25s;
+
+}
+
+.contentTab:hover{
+
+    background:rgba(59,130,246,.25);
+
+}
+
+.activeTab{
+
+    background:#3b82f6;
+
+    box-shadow:0 0 20px rgba(59,130,246,.35);
+
+}
+
+/* ==========================
+        STATUS BAR
+========================== */
+
+.statusBar{
+
+    position:fixed;
+
+    left:20px;
+
+    right:20px;
+
+    bottom:15px;
+
+    height:46px;
+
+    background:rgba(22,22,28,.75);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:15px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 18px;
+
+    font-size:14px;
+
+    color:#b8b8c5;
+
+}
+
+/* ==========================================
+            COMMAND PALETTE
+========================================== */
+
+#commandPalette{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    backdrop-filter:blur(10px);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+    padding-top:120px;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.25s;
+
+    z-index:9999;
+
+}
+
+#commandPalette.open{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+.commandWindow{
+
+    width:700px;
+
+    max-width:92%;
+
+    background:rgba(20,20,28,.95);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:0 30px 70px rgba(0,0,0,.5);
+
+    animation:fadeUp .25s ease;
+
+}
+
+#commandInput{
+
+    width:100%;
+
+    padding:22px;
+
+    background:none;
+
+    border:none;
+
+    outline:none;
+
+    color:white;
+
+    font-size:18px;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+#commandList{
+
+    max-height:420px;
+
+    overflow-y:auto;
+
+}
+
+.commandItem{
+
+    padding:18px 22px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.commandItem:hover{
+
+    background:#3b82f6;
+
+}
+
+.researchSection{
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:18px;
+
+    padding:20px;
+
+    margin-bottom:20px;
+
+}
+
+.researchSection h3{
+
+    margin-bottom:12px;
+
+    color:#3b82f6;
+
+}
+
+.researchSection ul{
+
+    margin-left:20px;
+
+    line-height:1.8;
+
+}
+
+.researchSection a{
+
+    color:#60a5fa;
+
+    text-decoration:none;
+
+}
+
+.researchSection a:hover{
+
+    text-decoration:underline;
+
+}
+
+.researchSection h1{
+
+    font-size:34px;
+
+    margin-bottom:10px;
+
+}
+
+.researchSection h2{
+
+    color:#60a5fa;
+
+    margin-bottom:12px;
+
+}
+
+.researchSection p{
+
+    line-height:1.9;
+
+    white-space:pre-wrap;
+
+}
+
+.researchSection li{
+
+    margin:10px 0;
+
+}
+
+.researchSection a{
+
+    color:#8ab4ff;
+
+}
